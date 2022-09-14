@@ -17,8 +17,10 @@ namespace Func7PreviewFunc
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            log.LogTrace("This is the first trace");
+            log.LogInformation("Log Request number {InfoLogCount}", 1);
+            log.LogTrace("A little trace in the middle");
+            log.LogDebug("A littel debug info in the middle");
+            log.LogInformation("Log Request number {InfoLogCount}", 2);
 
             string name = req.Query["name"];
 

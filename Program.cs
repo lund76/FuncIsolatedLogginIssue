@@ -15,7 +15,7 @@ namespace Func7PreviewFunc
                 .ConfigureLogging((context, logger) =>
                 {
                     var conString = context.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"];
-                
+                    logger.ClearProviders();
                     logger.AddApplicationInsights(
                     configureTelemetryConfiguration: (config) => config.ConnectionString = conString,
                     configureApplicationInsightsLoggerOptions: (options) => {}

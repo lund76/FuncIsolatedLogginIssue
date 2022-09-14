@@ -18,7 +18,10 @@ namespace Func7PreviewFunc
         [Function("HttpExample")]
         public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
         {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
+           _logger.LogInformation("Log Request number {InfoLogCount}", 1);
+           _logger.LogTrace("A little trace in the middle");
+           _logger.LogDebug("A littel debug info in the middle");
+           _logger.LogInformation("Log Request number {InfoLogCount}", 2);
 
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
